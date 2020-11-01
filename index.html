@@ -10079,30 +10079,61 @@ Error message and password prompt
 <div created="20201101013342028" modified="20201101013344713" tags="" title="New Tiddler 1">
 <pre></pre>
 </div>
-<div created="20201101021013056" modified="20201101030430380" tags="" title="Types of Probability distributions">
-<pre>Bernoulli  the outcome of a single Bernoulli trial (e.g. success/failure, yes/no)
+<div created="20201101021013056" modified="20201101042350788" tags="" title="Types of Probability distributions">
+<pre>!! Bernoulli  
+the outcome of a single Bernoulli trial (e.g. success/failure, yes/no)
 eg what's the chance of a 3 or a 4 in one dice throw?
-Binomial for the number of &quot;positive occurrences&quot; (e.g. successes, yes votes, etc.) given a fixed 
+
+!! Binomial 
+for the number of &quot;positive occurrences&quot; (e.g. successes, yes votes, etc.) given a fixed 
 total number of independent occurrences
 eg in 20 throws what is the chance you throw x many 3s or 4s? 
-Geometric distribution
+
+!!Geometric distribution
 Gives the probability that the first occurrence of success requires k independent trials
 The chance of getting one success in x bernoulli trials.
 eg chance of one 3 or 4 after n throws  OR the chance of getting X-1 failures before the first success.
-Hypergeometric distribution
+!!Hypergeometric distribution
 the probability of k successes (random draws for which the object drawn has a specified feature) in n n draws, without replacement, from a finite population of size N
 eg drawing Marbles from a small bag
 
-Categorical  distribution
+!!Categorical  distribution
 Generalised forms of bernoulli trial where instead of true or false, it's a vector of several categories with a probability for each.  
-eg one throw of dice [
-&amp; Multinomial is for multiple trials
+eg one throw of dice [skull, one, two, three, four, five, crit]
+&amp; Multinomial is for //multiple //trials
 
-Poisson process
+!!Poisson distribution
+the probability of a given number of events occurring in a fixed interval of time or space if these events occur with a known constant mean rate (mean rate=λ = num events/interval) and independently of the time since the last event.[1] The Poisson distribution can also be used for the number of events in other specified intervals such as distance, area or volume. 
+Eg.  get 10 on average emails per/day. What is the chance I will get only 3 emails today? 
 
-Beta
+!!Beta distribution
+Used as an easy way to calculate likelihood that your experiment falls within base rate (can add more experiments and adjust). The advantage is you can add new information (posteriortrials) to Beta.
+eg, Let’s say how likely someone would agree to go on a date with you follows a Beta distribution with α = 2 and β = 8. What is the probability that your success rate will be greater than 50%?
 
-</pre>
+P(X&gt;0.5) = 1- CDF(0.5) = 0.01953
+
+suppose your first 2 trials are failures.  Beta  (α = 2 and β = 10).
+P(X&gt;0.5) = 1- CDFBeta(2,10) (0.5) = 0.005859375
+
+!!!Definitions
+
+Prior P(θ)
+Posterior P(θ|x) - (Conjugate prior for likelihood if same dist type)
+Likelihood P(x|θ) - (Conjugate prior for posterior if same dist type)
+
+!!!Why Beta?
+Why is Beta used? because it's a conjugate prior (P(θ|x) )  for bernoulli, binomial, neg binomial and geometric distributions.
+
+!!!Conjugate Mappings 
+&lt;Beta posterior&gt;
+Beta prior  * Bernoulli likelihood → Beta posterior 
+Beta prior * Binomial likelihood → Beta posterior
+Beta prior * Negative Binomial likelihood → Beta posterior
+Beta prior * Geometric likelihood → Beta posterior
+&lt;Gamma posterior&gt;
+Gamma prior * Poisson likelihood → Gamma posterior
+Gamma prior * Exponential likelihood → Gamma posterior&lt;Normal posterior&gt; 
+Normal prior * Normal likelihood (mean) → Normal posterior</pre>
 </div>
 
 
